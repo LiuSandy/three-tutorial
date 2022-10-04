@@ -96,9 +96,28 @@ const camera = new THREE.PerspectiveCamera(
   100
 );
 // 将相机的位置偏移
-camera.position.z = 6;
+camera.position.set(-2,2,2)
 
 scene.add(camera);
+// 传入相机对象
+const cameraHelper = new THREE.CameraHelper(camera)
+// 添加到场景中
+scene.add(cameraHelper)
+
+const axesHelper = new THREE.AxesHelper(5);
+scene.add(axesHelper)
+
+/**
+ * 添加辅助相机观察 cameraHelper
+ */
+const camera1 = new THREE.PerspectiveCamera(
+  45,
+  size.width / size.height,
+  0.1,
+  100
+);
+camera1.position.z = 10
+scene.add(camera1)
 
 const controls = new OrbitControls(camera, canvas);
 
@@ -128,8 +147,9 @@ const animation = () => {
   sphere.position.x = Math.cos(step * sphereParameters.frequency);
   sphere.position.y = Math.abs(Math.sin(step * sphereParameters.frequency));
 
+  cameraHelper.update()
   controls.update();
   window.requestAnimationFrame(animation);
-  renderer.render(scene, camera);
+  renderer.render(scene, camera1);
 };
 animation();
