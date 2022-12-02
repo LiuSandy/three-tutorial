@@ -1,0 +1,13 @@
+{
+  "name": "base_code",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build <your entry file>"
+  },
+  "dependencies": {
+    "three": "^0.144.0"
+  }
+}
