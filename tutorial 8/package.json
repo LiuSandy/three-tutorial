@@ -8,6 +8,8 @@
     "build": "parcel build <your entry file>"
   },
   "dependencies": {
+    "cannon-es": "^0.20.0",
+    "dat.gui": "^0.7.9",
     "three": "^0.144.0"
   }
 }
